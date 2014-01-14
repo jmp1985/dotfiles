@@ -110,10 +110,15 @@ nmap <C-z> u
 " -----------------------------------------------------------------------------
 
 " Filename/Buffer/Yank History matching
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
 let g:unite_source_history_yank_enable = 1
-nnoremap <leader>f :Unite -start-insert file_rec<cr>
-nnoremap <leader>b :Unite -start-insert buffer<cr>
-nnoremap <leader>y :Unite -start-insert history/yank<cr>
+let g:unite_enable_start_insert = 1
+nnoremap <leader>f :Unite file_rec<cr>
+nnoremap <leader>b :Unite buffer<cr>
+nnoremap <leader>y :Unite history/yank<cr>
+nnoremap <leader>m :Unite file_mru<CR>
+nnoremap <leader>u :Unite undo<CR>
+nnoremap <leader>g :Unite vimgrep<CR>
 
 " -----------------------------------------------------------------------------
 "  Some latex stuff
