@@ -113,6 +113,8 @@ nmap <C-z> u
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
+let g:unite_source_file_mru_long_limit = 3000
+let g:unite_source_directory_mru_long_limit = 3000
 nnoremap <leader>f :Unite file_rec<cr>
 nnoremap <leader>b :Unite buffer<cr>
 nnoremap <leader>y :Unite history/yank<cr>
