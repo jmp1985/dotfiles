@@ -109,15 +109,11 @@ nmap <C-z> u
 "  Some unite key bindings
 " -----------------------------------------------------------------------------
 
-" Filename matching
-nnoremap <C-p> :Unite -start-insert file_rec<cr>
-
-"Buffer switching
-nnoremap <space>s :Unite -start-insert buffer<cr>
-
-" Yank history matching
+" Filename/Buffer/Yank History matching
 let g:unite_source_history_yank_enable = 1
-nnoremap <space>y :Unite -start-insert history/yank<cr>
+nnoremap <leader>f :Unite -start-insert file_rec<cr>
+nnoremap <leader>b :Unite -start-insert buffer<cr>
+nnoremap <leader>y :Unite -start-insert history/yank<cr>
 
 " -----------------------------------------------------------------------------
 "  Some latex stuff
