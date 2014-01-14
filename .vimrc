@@ -106,6 +106,20 @@ imap <C-z> <ESC>u
 nmap <C-z> u
 
 " -----------------------------------------------------------------------------
+"  Some unite key bindings
+" -----------------------------------------------------------------------------
+
+" Filename matching
+nnoremap <C-p> :Unite -start-insert file_rec<cr>
+
+"Buffer switching
+nnoremap <space>s :Unite -start-insert buffer<cr>
+
+" Yank history matching
+let g:unite_source_history_yank_enable = 1
+nnoremap <space>y :Unite -start-insert history/yank<cr>
+
+" -----------------------------------------------------------------------------
 "  Some latex stuff
 " -----------------------------------------------------------------------------
 
