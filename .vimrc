@@ -102,8 +102,6 @@ vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
-imap <C-z> <ESC>u
-nmap <C-z> u
 
 " -----------------------------------------------------------------------------
 "  Some unite key bindings
