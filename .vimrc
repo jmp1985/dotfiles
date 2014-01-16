@@ -111,8 +111,8 @@ imap <C-v> <ESC>"+pa
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
-"let g:unite_source_file_mru_long_limit = 3000
-"let g:unite_source_directory_mru_long_limit = 3000
+let g:unite_source_file_mru_long_limit = 100
+let g:unite_source_directory_mru_long_limit = 100
 nnoremap <leader>f :<C-u>Unite file<cr>
 nnoremap <leader>r :<C-u>Unite file_rec<cr>
 nnoremap <leader>b :<C-u>Unite buffer<cr>
