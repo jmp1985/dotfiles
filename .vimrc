@@ -111,14 +111,15 @@ imap <C-v> <ESC>"+pa
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
-let g:unite_source_file_mru_long_limit = 3000
-let g:unite_source_directory_mru_long_limit = 3000
-nnoremap <leader>f :Unite file_rec<cr>
-nnoremap <leader>b :Unite buffer<cr>
-nnoremap <leader>y :Unite history/yank<cr>
-nnoremap <leader>m :Unite file_mru<CR>
-nnoremap <leader>u :Unite undo<CR>
-nnoremap <leader>g :Unite vimgrep<CR>
+"let g:unite_source_file_mru_long_limit = 3000
+"let g:unite_source_directory_mru_long_limit = 3000
+nnoremap <leader>f :<C-u>Unite file<cr>
+nnoremap <leader>r :<C-u>Unite file_rec<cr>
+nnoremap <leader>b :<C-u>Unite buffer<cr>
+nnoremap <leader>y :<C-u>Unite history/yank<cr>
+nnoremap <leader>m :<C-u>Unite file_mru<cr>
+nnoremap <leader>u :<C-u>Unite undo<cr>
+nnoremap <leader>g :<C-u>Unite vimgrep<cr>
 
 " -----------------------------------------------------------------------------
 "  Some latex stuff
