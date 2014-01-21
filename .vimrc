@@ -41,6 +41,7 @@ set mouse+=a                    " Enable mouse for scrolling
 set number                      " Show line numbers
 set confirm                     " Confirm write on exit
 set cursorline                  " Show current line
+set clipboard=unnamedplus       " Synchronize with clipboard          
 
 " -----------------------------------------------------------------------------
 "  Colour scheme
@@ -69,20 +70,6 @@ if has("gui_running")
   " Toggle fullscreen in gui
   MapToggle <F11> fullscreen
 
-  " Function to hide distractions
-  function HideDistractions()
-    set nonumber
-    set noruler
-    set columns=80
-  endfunction
-
-  " Function to show distractions
-  function ShowDistractions()
-    set number
-    set ruler
-    set columns=9999
-  endfunction
-
 endif
 
 " -----------------------------------------------------------------------------
@@ -92,16 +79,6 @@ endif
 if &term =~ '^screen'
   set ttymouse=xterm2     " Enable better mouse movement in vim
 endif
-
-" -----------------------------------------------------------------------------
-"  Some key mappings 
-" -----------------------------------------------------------------------------
-
-" Copy/cut/paste/undo
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
 
 " -----------------------------------------------------------------------------
 "  Some unite key bindings
