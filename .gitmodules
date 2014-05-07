@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/nerdcommenter"]
 	path = .vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter
+[submodule ".vim/bundle/julia-vim"]
+	path = .vim/bundle/julia-vim
+	url = git://github.com/JuliaLang/julia-vim
