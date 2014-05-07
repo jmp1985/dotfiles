@@ -8,18 +8,6 @@ syntax on
 filetype plugin indent on
 
 " -----------------------------------------------------------------------------
-"  Some useful functions
-" -----------------------------------------------------------------------------
-
-" Map key to toggle option
-function MapToggle(key, opt)
-  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
-  exec 'nnoremap '.a:key.' '.cmd
-  exec 'inoremap '.a:key." \<C-O>".cmd
-endfunction
-command -nargs=+ MapToggle call MapToggle(<f-args>)
-
-" -----------------------------------------------------------------------------
 "  Some general options
 " -----------------------------------------------------------------------------
 
@@ -42,6 +30,11 @@ set number                      " Show line numbers
 set confirm                     " Confirm write on exit
 set cursorline                  " Show current line
 set clipboard=unnamedplus       " Synchronize with clipboard          
+set wildmenu                    " Command completions
+set wildmode=longest:full,full  " Command completions
+set backup                      " Use backup files
+set writebackup                 " Write a backup file
+set noswapfile                  " Don't write a swap file
 
 " -----------------------------------------------------------------------------
 "  Colour scheme
@@ -67,9 +60,6 @@ if has("gui_running")
   set guifont=Ubuntu\ Mono\ 13
   set lines=25 columns=80   " The size of the window
 
-  " Toggle fullscreen in gui
-  MapToggle <F11> fullscreen
-
 endif
 
 " -----------------------------------------------------------------------------
@@ -81,26 +71,17 @@ if &term =~ '^screen'
 endif
 
 " -----------------------------------------------------------------------------
-"  Some unite key bindings
-" -----------------------------------------------------------------------------
-
-" Filename/Buffer/Yank History matching
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-let g:unite_source_history_yank_enable = 1
-let g:unite_enable_start_insert = 1
-let g:unite_source_file_mru_long_limit = 100
-let g:unite_source_directory_mru_long_limit = 100
-nnoremap <leader>f :<C-u>Unite file<cr>
-nnoremap <leader>r :<C-u>Unite file_rec<cr>
-nnoremap <leader>b :<C-u>Unite buffer<cr>
-nnoremap <leader>y :<C-u>Unite history/yank<cr>
-nnoremap <leader>m :<C-u>Unite file_mru<cr>
-nnoremap <leader>u :<C-u>Unite undo<cr>
-nnoremap <leader>g :<C-u>Unite vimgrep<cr>
-
-" -----------------------------------------------------------------------------
 "  Some latex stuff
 " -----------------------------------------------------------------------------
 
 let g:tex_flavor="latex"
 
+function! g:ToggleNuMode()
+  if(&rnu == 1)
+    set nornu
+  else
+    set rnu
+  endif
+endfunction
+
+nnoremap <silent> <C-L> :call g:ToggleNuMode()<cr> 
